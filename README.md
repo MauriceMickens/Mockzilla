@@ -1,49 +1,215 @@
-# Mockzilla
+# Mockzilla Landing Page
 
-## Validation Objectives & Success Metrics
+> AI-powered mock interview platform landing page built with Next.js, TypeScript, and Tailwind CSS.
 
-### Primary Goal
-Prove demand for Mockzilla before writing product code by converting cold traffic into email sign-ups for the "5-question starter pack."
+![Mockzilla](./public/images/mockzilla-mascot.png)
 
-### Success Bars (must hit within 72 hours of ad launch)
+## 🦕 About Mockzilla
 
-**Landing-page CVR ≥ 15%**
-- CVR = Leads / Landing Clicks
+Mockzilla is an AI-powered mock interview platform that helps job seekers practice with realistic, role-specific questions and receive instant feedback. Built for Software Engineers, Data Scientists, Product Managers, and Finance professionals.
 
-**Volume/Economics: ≥ 30 leads in 72h or CAC (email) ≤ $5**
-- CAC = Ad Spend / Leads
+## 🚀 Features
 
-**Lead-magnet engagement ≥ 40%**
-- Doc Open Rate = Unique Doc Views / Leads
+- **Responsive Design** - Mobile-first approach with Tailwind CSS
+- **Dark Mode Support** - Toggle between light and dark themes
+- **Meta Pixel Integration** - Facebook advertising pixel for conversion tracking
+- **Email Capture** - Dual integration with MailerLite and Zapier webhooks
+- **SEO Optimized** - Complete meta tags, OpenGraph, and Twitter cards
+- **Accessibility** - WCAG compliant with proper ARIA labels
+- **TypeScript** - Full type safety throughout the application
 
-### Guardrails (nice-to-have, diagnose if failing)
-- CTR ≥ 1.0% on best creative
-- Bounce ≤ 65%, LCP ≤ 2.5s (Lighthouse)
+## 🛠 Tech Stack
 
-### Instrumentation (single source of truth)
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS 3
+- **Font**: Inter (Google Fonts)
+- **Icons**: Heroicons
+- **Analytics**: Meta Pixel (Facebook)
+- **Email**: MailerLite + Zapier integration
 
-**Traffic & spend:** Meta Ads Manager (campaign: Mockzilla_Validation_01)
+## 📦 Installation
 
-**Clicks:** Meta "Link Clicks" with UTMs `?utm_source=meta&utm_campaign=launch1&utm_content={hook}`
+1. **Clone the repository**
+   \`\`\`bash
+   git clone https://github.com/yourusername/mockzilla-landing.git
+   cd mockzilla-landing
+   \`\`\`
 
-**Leads:** MailerLite group EarlyAccess (counts) + Zapier → Google Sheet log (email, timestamp, variant, utm_campaign)
+2. **Install dependencies**
+   \`\`\`bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   \`\`\`
 
-**Lead-magnet opens:** Google Drive "Viewer count" on the starter-pack Doc (or MailerLite link-clicks as backup)
+3. **Run the development server**
+   \`\`\`bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   \`\`\`
 
-**Pixel events:** Meta Pixel PageView (all) + Lead on /thanks
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-### Decision Gate (at T+72h from ad start)
+## ⚙️ Configuration
 
-**🟢 GREEN (Build MVP now):** Meets all bars above
+### Required Setup
 
-**🟡 YELLOW (Iterate once):** CVR 10–14% or Leads 15–29 or CAC $5–8 or Doc opens 25–39% → adjust headline/offer/creative and rerun 48h
+Before deploying, you need to replace the following placeholders in \`app/page.tsx\`:
 
-**🔴 RED (Stop/Pivot):** CVR <10% with ≥200 clicks or Leads <15 after $150 spend
+1. **Meta Pixel ID**
+   \`\`\`typescript
+   // Replace YOUR_PIXEL_ID with your actual Facebook Pixel ID
+   fbq('init','YOUR_PIXEL_ID');
+   \`\`\`
 
-### Ownership & Cadence
+2. **MailerLite Integration**
+   \`\`\`typescript
+   // Replace with your MailerLite form action URL
+   fetch("YOUR_MAILERLITE_FORM_ACTION", {
+     // Replace GROUP_ID with your MailerLite group ID
+     body: JSON.stringify({
+       groups: ["GROUP_ID"],
+     }),
+   })
+   \`\`\`
 
-**Owner:** Maurice
+3. **Zapier Webhook**
+   \`\`\`typescript
+   // Replace with your Zapier webhook URL
+   fetch("YOUR_ZAPIER_WEBHOOK_URL", {
+   \`\`\`
 
-**Daily (AM/PM):** Log Spend, Clicks, Leads, CVR, CAC, Doc Opens in the validation Sheet
+### Optional Assets
 
-**T+72h:** Post snapshot + go/no-go decision to the Kanban "Done" column
+Add these files to the \`public/\` directory:
+- \`favicon.ico\` - Website favicon
+- \`og.png\` - OpenGraph image (1200x630px recommended)
+
+## 🎨 Customization
+
+### Colors
+
+The primary brand colors are defined in \`tailwind.config.js\`:
+- **Primary Green**: \`#32D06D\`
+- **Primary Dark**: \`#2AB85A\`
+- **Dark Background**: \`#121212\`
+- **Text Color**: \`#475569\`
+
+### Sections
+
+The landing page includes these sections:
+1. **Navigation** - Sticky header with dark mode toggle
+2. **Hero** - Main value proposition with CTA
+3. **Features** - Three-column feature grid
+4. **Comparison** - Human coach vs Mockzilla
+5. **Pricing** - Three-tier pricing cards
+6. **Email Capture** - Lead generation form
+7. **FAQ** - Expandable accordion
+8. **Footer** - Links and copyright
+
+## 📊 Analytics & Tracking
+
+### Meta Pixel Events
+
+The following events are tracked:
+- \`PageView\` - Page loads
+- \`Lead\` - Email submissions
+- \`CompleteRegistration\` - Successful signups
+- \`InitiateCheckout\` - CTA button clicks
+- \`ViewContent\` - Section interactions
+
+### Email Integration
+
+Email submissions are sent to both:
+1. **MailerLite** - For email marketing campaigns
+2. **Zapier** - For workflow automation and CRM integration
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. **Connect your GitHub repository** to Vercel
+2. **Configure environment variables** (if needed)
+3. **Deploy** - Automatic deployments on every push to main
+
+### Other Platforms
+
+This is a standard Next.js application and can be deployed to:
+- Netlify
+- AWS Amplify
+- Railway
+- DigitalOcean App Platform
+
+## 📱 Mobile Responsiveness
+
+The landing page is fully responsive with breakpoints:
+- **Mobile**: < 768px
+- **Tablet**: 768px - 1024px
+- **Desktop**: > 1024px
+
+## ♿ Accessibility
+
+- Semantic HTML structure
+- ARIA labels and roles
+- Keyboard navigation support
+- Screen reader compatibility
+- Color contrast compliance (WCAG AA)
+
+## 🔧 Development
+
+### Project Structure
+
+\`\`\`
+mockzilla-landing/
+├── app/
+│   ├── globals.css          # Global styles and Tailwind imports
+│   ├── layout.tsx           # Root layout with metadata
+│   └── page.tsx             # Main landing page component
+├── public/
+│   └── images/
+│       └── mockzilla-mascot.png
+├── tailwind.config.js       # Tailwind configuration
+├── package.json
+└── README.md
+\`\`\`
+
+### Available Scripts
+
+- \`npm run dev\` - Start development server
+- \`npm run build\` - Build for production
+- \`npm run start\` - Start production server
+- \`npm run lint\` - Run ESLint
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (\`git checkout -b feature/amazing-feature\`)
+3. Commit your changes (\`git commit -m 'Add amazing feature'\`)
+4. Push to the branch (\`git push origin feature/amazing-feature\`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 📞 Support
+
+For support, email support@mockzilla.io or create an issue in this repository.
+
+## 🙏 Acknowledgments
+
+- Built with [v0.dev](https://v0.dev) - AI-powered React component generator
+- Icons by [Heroicons](https://heroicons.com/)
+- Fonts by [Google Fonts](https://fonts.google.com/)
+- Styling by [Tailwind CSS](https://tailwindcss.com/)
+
+---
+
+**Made with ❤️ for job seekers everywhere**
