@@ -12,7 +12,7 @@ Mockzilla is an AI-powered mock interview platform that helps job seekers practi
 
 - **Responsive Design** - Mobile-first approach with Tailwind CSS
 - **Dark Mode Support** - Toggle between light and dark themes
-- **Meta Pixel Integration** - Facebook advertising pixel for conversion tracking
+- **Meta Pixel Integration** - Facebook advertising pixel for conversion tracking (ID: 1012776315825763)
 - **Email Capture** - Dual integration with MailerLite and Zapier webhooks
 - **SEO Optimized** - Complete meta tags, OpenGraph, and Twitter cards
 - **Accessibility** - WCAG compliant with proper ARIA labels
@@ -59,38 +59,33 @@ Mockzilla is an AI-powered mock interview platform that helps job seekers practi
 
 ## ⚙️ Configuration
 
-### Required Setup
+### Pre-configured Features
 
-Before deploying, you need to replace the following placeholders in \`app/page.tsx\`:
+The following integrations are already set up and ready to use:
 
-1. **Meta Pixel ID**
-   \`\`\`typescript
-   // Replace YOUR_PIXEL_ID with your actual Facebook Pixel ID
-   fbq('init','YOUR_PIXEL_ID');
-   \`\`\`
+1. **Meta Pixel Integration** ✅
+   - Facebook Pixel ID: `1012776315825763`
+   - Tracks PageView and Lead events
+   - Includes `/thanks` page with auto-redirect
 
-2. **MailerLite Integration**
-   \`\`\`typescript
-   // Replace with your MailerLite form action URL
-   fetch("YOUR_MAILERLITE_FORM_ACTION", {
-     // Replace GROUP_ID with your MailerLite group ID
-     body: JSON.stringify({
-       groups: ["GROUP_ID"],
-     }),
-   })
-   \`\`\`
+2. **Email Capture Form** ✅
+   - Functional email submission
+   - Lead tracking integration
+   - Success page with conversion tracking
 
-3. **Zapier Webhook**
-   \`\`\`typescript
-   // Replace with your Zapier webhook URL
-   fetch("YOUR_ZAPIER_WEBHOOK_URL", {
-   \`\`\`
+### Optional Customizations
+
+If you need to modify the integrations, update these in the respective files:
+
+- **MailerLite**: Configure in email submission handler
+- **Zapier Webhook**: Add webhook URL for automation
+- **Additional Tracking**: Modify `components/facebook-pixel.tsx`
 
 ### Optional Assets
 
-Add these files to the \`public/\` directory:
-- \`favicon.ico\` - Website favicon
-- \`og.png\` - OpenGraph image (1200x630px recommended)
+Add these files to the `public/` directory:
+- `favicon.ico` - Website favicon
+- `og.png` - OpenGraph image (1200x630px recommended)
 
 ## 🎨 Customization
 
@@ -118,18 +113,17 @@ The landing page includes these sections:
 
 ### Meta Pixel Events
 
-The following events are tracked:
-- \`PageView\` - Page loads
-- \`Lead\` - Email submissions
-- \`CompleteRegistration\` - Successful signups
-- \`InitiateCheckout\` - CTA button clicks
-- \`ViewContent\` - Section interactions
+The following events are automatically tracked:
+- `PageView` - Page loads
+- `Lead` - Email submissions on `/thanks` page
+- Pixel ID: `1012776315825763`
 
 ### Email Integration
 
-Email submissions are sent to both:
-1. **MailerLite** - For email marketing campaigns
-2. **Zapier** - For workflow automation and CRM integration
+Email submissions trigger:
+1. **Lead Event** - Facebook Pixel conversion tracking
+2. **Redirect Flow** - `/thanks` page → home page (5s delay)
+3. **Ready for Integration** - MailerLite and Zapier endpoints available
 
 ## 🚀 Deployment
 
