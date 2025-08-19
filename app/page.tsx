@@ -133,7 +133,7 @@ export default function LandingPage() {
             height="1"
             width="1"
             style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1012776315825763&ev=PageView&noscript=1"
+            src="https://www.facebook.com/tr?id=1307223167660720&ev=PageView&noscript=1"
             alt=""
           />
         </noscript>

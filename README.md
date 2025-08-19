@@ -12,7 +12,7 @@ Mockzilla is an AI-powered mock interview platform that helps job seekers practi
 
 - **Responsive Design** - Mobile-first approach with Tailwind CSS
 - **Dark Mode Support** - Toggle between light and dark themes
-- **Meta Pixel Integration** - Facebook advertising pixel for conversion tracking (ID: 1012776315825763)
+- **Meta Pixel Integration** - Facebook advertising pixel for conversion tracking (ID: 1307223167660720)
 - **Email Capture** - Dual integration with MailerLite and Zapier webhooks
 - **SEO Optimized** - Complete meta tags, OpenGraph, and Twitter cards
 - **Accessibility** - WCAG compliant with proper ARIA labels
@@ -64,7 +64,7 @@ Mockzilla is an AI-powered mock interview platform that helps job seekers practi
 The following integrations are already set up and ready to use:
 
 1. **Meta Pixel Integration** ✅
-   - Facebook Pixel ID: `1012776315825763`
+   - Facebook Pixel ID: `1307223167660720`
    - Tracks PageView and Lead events
    - Includes `/thanks` page with auto-redirect
 
@@ -116,7 +116,7 @@ The landing page includes these sections:
 The following events are automatically tracked:
 - `PageView` - Page loads
 - `Lead` - Email submissions on `/thanks` page
-- Pixel ID: `1012776315825763`
+- Pixel ID: `1307223167660720`
 
 ### Email Integration
 
